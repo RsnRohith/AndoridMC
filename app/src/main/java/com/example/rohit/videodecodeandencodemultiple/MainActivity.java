@@ -18,11 +18,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         final VideoDecodeAndEncoder videoDecodeAndEncoder = new VideoDecodeAndEncoder(Environment.getExternalStorageDirectory().toString()+ File.separator+"inputvideo.mp4",Environment.getExternalStorageDirectory().toString()+ File.separator+"outputvideo.mp4",2);
         new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
+                    Thread.sleep(2000);
                     videoDecodeAndEncoder.extractDecodeEditEncodeMux();
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -31,13 +33,3 @@ public class MainActivity extends AppCompatActivity {
         }).start();
     }
 }
-
-
-
-/*
-
-
-
-
-
- */
